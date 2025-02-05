@@ -87,11 +87,12 @@
         <div class="loading" id="loading">BUSCANDO DADOS NO SISTEMA...</div>
         <div class="certificate-info" id="certificateInfo">
             <h3>Informações do Certificado</h3>
-            <p><strong>Nome do Aluno:</strong> João da Silva</p>
-            <p><strong>Curso:</strong> Administração</p>
-            <p><strong>Instituição:</strong> IDP Cursos</p>
-            <p><strong>Data de Conclusão:</strong> 20/01/2025</p>
-            <a href="certificado.pdf" class="download-btn" id="downloadBtn" download>Baixar Certificado</a>
+            <p id="studentName"></p>
+            <p id="course"></p>
+            <p id="institution"></p>
+            <p id="dates"></p>
+            <p id="hours"></p>
+            <a href="#" class="download-btn" id="downloadBtn" target="_blank">Baixar Certificado</a>
         </div>
     </div>
     <script>
@@ -100,8 +101,14 @@
             let loading = document.getElementById("loading");
             let info = document.getElementById("certificateInfo");
             let downloadBtn = document.getElementById("downloadBtn");
+            
+            let studentName = document.getElementById("studentName");
+            let course = document.getElementById("course");
+            let institution = document.getElementById("institution");
+            let dates = document.getElementById("dates");
+            let hours = document.getElementById("hours");
 
-            if (code === "IDP213244") {
+            if (code === "IDP3001") {
                 loading.style.display = "block";
                 info.style.display = "none";
                 downloadBtn.style.display = "none";
@@ -110,6 +117,34 @@
                     loading.style.display = "none";
                     info.style.display = "block";
                     downloadBtn.style.display = "block";
+
+                    studentName.innerHTML = "<strong>Nome do Aluno:</strong> JOSEMAR NASCIMENTO MARTINS";
+                    course.innerHTML = "<strong>Curso:</strong> Motorista Profissional";
+                    institution.innerHTML = "<strong>Instituição:</strong> Instituto de Desenvolvimento Profissional";
+                    dates.innerHTML = "<strong>Data de Conclusão:</strong> 15/11/2024";
+                    hours.innerHTML = "<strong>Carga Horária:</strong> 100 horas";
+                    
+                    // Link para o certificado no Google Drive
+                    downloadBtn.href = "https://drive.google.com/file/d/1iMa2gFfTndxcoyW7miwFd-igWVKgCv2a/view?usp=sharing";
+                }, 3000);
+            } else if (code === "IDP213244") {
+                loading.style.display = "block";
+                info.style.display = "none";
+                downloadBtn.style.display = "none";
+                
+                setTimeout(() => {
+                    loading.style.display = "none";
+                    info.style.display = "block";
+                    downloadBtn.style.display = "block";
+
+                    studentName.innerHTML = "<strong>Nome do Aluno:</strong> JOSEMAR NASCIMENTO MARTINS";
+                    course.innerHTML = "<strong>Curso:</strong> Motorista de Carga";
+                    institution.innerHTML = "<strong>Instituição:</strong> IDP Cursos";
+                    dates.innerHTML = "<strong>Data de Conclusão:</strong> 25/03/2024";
+                    hours.innerHTML = "<strong>Carga Horária:</strong> 100 horas";
+                    
+                    // Link para o certificado no Google Drive
+                    downloadBtn.href = "https://drive.google.com/file/d/1XVgoiKi4Ccn3Jlwdps8KdUS8LRdA1jRx/view?usp=sharing";
                 }, 3000);
             } else {
                 alert("Código inválido. Tente novamente.");
