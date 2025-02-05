@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IDPCURSOS - Validação de Certificado</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            text-align: center;
+        }
+        header {
+            background-color: #002d6b;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            font-size: 18px;
+        }
+        .container {
+            margin-top: 30px;
+            padding: 0 10px;
+        }
+        .input-section {
+            margin-bottom: 15px;
+        }
+        input {
+            padding: 10px;
+            width: 90%;
+            max-width: 300px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #002d6b;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .loading {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #002d6b;
+        }
+        .certificate-info {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 14px;
+        }
+        .download-btn {
+            display: none;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>IDP CURSOS - Validação de Certificado</h1>
+    </header>
+    <div class="container">
+        <div class="input-section">
+            <input type="text" id="certificateCode" placeholder="Digite o código do certificado">
+            <button onclick="validateCertificate()">Validar</button>
+        </div>
+        <div class="loading" id="loading">BUSCANDO DADOS NO SISTEMA...</div>
+        <div class="certificate-info" id="certificateInfo">
+            <h3>Informações do Certificado</h3>
+            <p><strong>Nome do Aluno:</strong> João da Silva</p>
+            <p><strong>Curso:</strong> Administração</p>
+            <p><strong>Instituição:</strong> IDP Cursos</p>
+            <p><strong>Data de Conclusão:</strong> 20/01/2025</p>
+            <a href="certificado.pdf" class="download-btn" id="downloadBtn" download>Baixar Certificado</a>
+        </div>
+    </div>
+    <script>
+        function validateCertificate() {
+            let code = document.getElementById("certificateCode").value.trim().toUpperCase();
+            let loading = document.getElementById("loading");
+            let info = document.getElementById("certificateInfo");
+            let downloadBtn = document.getElementById("downloadBtn");
+
+            if (code === "IDP213244") {
+                loading.style.display = "block";
+                info.style.display = "none";
+                downloadBtn.style.display = "none";
+                
+                setTimeout(() => {
+                    loading.style.display = "none";
+                    info.style.display = "block";
+                    downloadBtn.style.display = "block";
+                }, 3000);
+            } else {
+                alert("Código inválido. Tente novamente.");
+            }
+        }
+    </script>
+</body>
+</html>
